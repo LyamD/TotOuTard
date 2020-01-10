@@ -83,7 +83,7 @@ CREATE TABLE Affiche(
 CREATE TABLE Reservations(
    id INT,
    horaire DATETIME,
-   nbDePersonnes BYTE,
+   nbDePersonnes INT,
    created_at DATE,
    updated_at VARCHAR(50),
    id_1 INT NOT NULL,
