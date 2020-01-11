@@ -1,11 +1,11 @@
 CREATE TABLE Plats(
-   id INT,
+   id INT AUTO_INCREMENT,
    nom VARCHAR(50),
    prix DECIMAL(13,2),
    image VARCHAR(255),
    commentaire TEXT,
-   contient_porc TINYINT(1),
-   present_carte TINYINT(1),
+   contient_porc TINYINT(1) DEFAULT '0',
+   present_carte TINYINT(1) DEFAULT '0',
    PRIMARY KEY(id)
 );
 
@@ -16,7 +16,7 @@ CREATE TABLE CategoriesPlats(
 );
 
 CREATE TABLE Clients(
-   id INT,
+   id INT AUTO_INCREMENT,
    nom VARCHAR(50),
    prenom VARCHAR(50),
    email VARCHAR(50),
@@ -27,13 +27,13 @@ CREATE TABLE Clients(
 );
 
 CREATE TABLE Etat(
-   id INT,
+   id INT AUTO_INCREMENT,
    nom VARCHAR(50),
    PRIMARY KEY(id)
 );
 
 CREATE TABLE Boissons(
-   id INT,
+   id INT AUTO_INCREMENT,
    nom VARCHAR(50),
    prix DECIMAL(13,2),
    description TEXT,
@@ -44,13 +44,13 @@ CREATE TABLE Boissons(
 );
 
 CREATE TABLE Menus(
-   id INT,
+   id INT AUTO_INCREMENT,
    dateMenu DATE,
    PRIMARY KEY(id)
 );
 
 CREATE TABLE Evenements(
-   id INT,
+   id INT AUTO_INCREMENT,
    nom VARCHAR(50),
    horaire_debut DATETIME,
    horaire_fin DATETIME,
@@ -65,14 +65,14 @@ CREATE TABLE CategoriesEvenements(
 );
 
 CREATE TABLE Photos(
-   id INT,
+   id INT AUTO_INCREMENT,
    image VARCHAR(50),
    description TEXT,
    PRIMARY KEY(id)
 );
 
 CREATE TABLE Affiche(
-   id INT,
+   id INT AUTO_INCREMENT,
    nom VARCHAR(50),
    description TEXT,
    id_1 INT NOT NULL,
@@ -81,7 +81,7 @@ CREATE TABLE Affiche(
 );
 
 CREATE TABLE Reservations(
-   id INT,
+   id INT AUTO_INCREMENT,
    horaire DATETIME,
    nbDePersonnes INT,
    created_at DATE,
