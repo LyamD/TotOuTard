@@ -20,7 +20,7 @@ class PlatsController extends Controller
 
     public function create()
     {
-        return view('');
+        return view('plats.create');
     }
 
     public function store(Request $request)
@@ -46,9 +46,11 @@ class PlatsController extends Controller
 
     static public function edit($id)
     {
-        $plats = plats::find($id);
-        return view('', );
+        $plat = plats::find($id);
+        return view('plats.edit', compact('plat', 'id'));
     }
+
+    
 
     public function update(Request $request, $id)
     {
