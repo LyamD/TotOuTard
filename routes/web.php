@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('plat', 'PlatsController');
+Route::resource('plat', 'PlatsController')->only([
+    'create', 'update', 'edit', 'store'
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');

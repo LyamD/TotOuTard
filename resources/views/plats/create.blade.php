@@ -4,7 +4,7 @@
 <div class="container">
     <h2>Enregistrer un nouveau film:</h2> <br />
 
-    {{Form::open(['route' => ['plats.store']])}}
+    {{Form::open(['route' => ['plat.store']])}}
 
     <div class="row">
         <div class="col-md-4"></div>

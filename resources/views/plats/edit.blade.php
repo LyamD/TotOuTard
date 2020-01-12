@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h2>Enregistrer un nouveau plat:</h2><br />
-    {{Form::model($plat, ['action' => ['PlatsController@update', $id]])}}
+    {{Form::model($plat, ['route' => ['plat.update', $id]])}}
 
     <div class="row">
         <div class="col-md-4"></div>
