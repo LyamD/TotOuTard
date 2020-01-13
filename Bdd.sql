@@ -68,11 +68,9 @@ CREATE TABLE Plats(
    commentaire TEXT,
    contient_porc TINYINT(1),
    present_carte TINYINT(1),
-   id_1 INT NOT NULL,
-   id_2 INT NOT NULL,
+   categoriesplats_id INT NOT NULL,
    PRIMARY KEY(id),
-   FOREIGN KEY(id_1) REFERENCES CategoriesPlats(id),
-   FOREIGN KEY(id_2) REFERENCES CategoriesPlats(id)
+   FOREIGN KEY(categoriesplats_id) REFERENCES CategoriesPlats(id)
 );
 
 CREATE TABLE Reservations(
@@ -81,36 +79,34 @@ CREATE TABLE Reservations(
    nbDePersonnes INT,
    created_at DATE,
    updated_at VARCHAR(50),
-   id_1 INT NOT NULL,
-   id_2 INT NOT NULL,
-   id_3 INT NOT NULL,
+   etat_id INT NOT NULL,
+   clients_id INT NOT NULL,
    PRIMARY KEY(id),
-   FOREIGN KEY(id_1) REFERENCES Etat(id),
-   FOREIGN KEY(id_2) REFERENCES Clients(id),
-   FOREIGN KEY(id_3) REFERENCES Clients(id)
+   FOREIGN KEY(etat_id) REFERENCES Etat(id),
+   FOREIGN KEY(clients_id) REFERENCES Clients(id)
 );
 
 CREATE TABLE Affiche(
    id INT AUTO_INCREMENT,
    nom VARCHAR(50),
    description TEXT,
-   id_1 INT NOT NULL,
+   plats_id INT NOT NULL,
    PRIMARY KEY(id),
-   FOREIGN KEY(id_1) REFERENCES Plats(id)
+   FOREIGN KEY(plats_id) REFERENCES Plats(id)
 );
 
 CREATE TABLE Menus_Plats(
-   id INT,
-   id_1 INT,
-   PRIMARY KEY(id, id_1),
-   FOREIGN KEY(id) REFERENCES Plats(id),
-   FOREIGN KEY(id_1) REFERENCES Menus(id)
+   plats_id INT,
+   menus_id INT,
+   PRIMARY KEY(plats_id, menus_id),
+   FOREIGN KEY(plats_id) REFERENCES Plats(id),
+   FOREIGN KEY(menus_id) REFERENCES Menus(id)
 );
 
 CREATE TABLE Evenement_Categories(
-   id INT,
-   id_1 INT,
-   PRIMARY KEY(id, id_1),
-   FOREIGN KEY(id) REFERENCES Evenements(id),
-   FOREIGN KEY(id_1) REFERENCES CategoriesEvenements(id)
+   evenements_id INT,
+   categoriesEvenements_id INT,
+   PRIMARY KEY(evenements_id, categoriesEvenements_id),
+   FOREIGN KEY(evenements_id) REFERENCES Evenements(id),
+   FOREIGN KEY(categoriesEvenements_id) REFERENCES CategoriesEvenements(id)
 );

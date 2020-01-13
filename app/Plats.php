@@ -14,4 +14,9 @@ class Plats extends Model
         'nom', 'prix', 'image', 'commentaire', 'contient_porc', 'present_carte'
     ];
 
+    function categorie()
+    {
+        return $this->belongTo('App\CategoriePlats', )
+    }
+
 }
