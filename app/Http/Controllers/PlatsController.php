@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Plats;
+use App\Plat;
 
 class PlatsController extends Controller
 {
@@ -14,7 +14,7 @@ class PlatsController extends Controller
 
     public function index()
     {
-        $plats = Plats::all();
+        $plats = Plat::all();
         return view('')->with('plats', $plats);
     }
 
@@ -25,12 +25,13 @@ class PlatsController extends Controller
 
     public function store(Request $request)
     {
-        $plats = new Plats;
+        $plats = new Plat;
         $plats->nom = $request->input('nom');
         $plats->commentaire = $request->input('commentaire');
         $plats->prix = $request->input('prix');
         $plats->contient_porc = $request->input('contient_porc');
         $plats->present_carte = $request->input('present_carte');
+        $plats->categories_plat_id = $request->input('categories_plat_id');
 
         $plats->save();
         
@@ -40,13 +41,13 @@ class PlatsController extends Controller
 
     public function show($id)
     {
-        $plats = plats::find($id);
+        $plats = plat::find($id);
         return view('')->with('plats', $plats);
     }
 
     static public function edit($id)
     {
-        $plat = plats::find($id);
+        $plat = plat::find($id);
         return view('plats.edit', compact('plat', 'id'));
     }
 
@@ -54,12 +55,13 @@ class PlatsController extends Controller
 
     public function update(Request $request, $id)
     {
-        $plats = Plats::find($id);
+        $plats = Plat::find($id);
         $plats->nom = $request->input('nom');
         $plats->commentaire = $request->input('commentaire');
         $plats->prix = $request->input('prix');
         $plats->contient_porc = $request->input('contient_porc');
         $plats->present_carte = $request->input('present_carte');
+        $plats->categories_plat_id = $request->input('categories_plat_id');
 
         $plats->save();
 
@@ -68,7 +70,7 @@ class PlatsController extends Controller
 
     static public function destroy($id)
     {
-        $plats = Plats::find($id);
+        $plats = Plat::find($id);
         $plats->delete();
 
         return redirect('home');

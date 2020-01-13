@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CategoriePlats extends Model
+class CategoriePlat extends Model
 {
-    protected $table = "CategoriesPlats";
+    protected $table = "CategoriesPlat";
 
     public $timestamps = false;
 
@@ -16,7 +16,7 @@ class CategoriePlats extends Model
 
     function plats()
     {
-        return $this->hasMany('App\Plats');
+        return $this->hasMany('App\Plat', 'categories_plat_id');
     }
 
 }

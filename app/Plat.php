@@ -4,19 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Plats extends Model
+class Plat extends Model
 {
     protected $table = "Plats";
 
     public $timestamps = false;
 
     protected $fillable = [
-        'nom', 'prix', 'image', 'commentaire', 'contient_porc', 'present_carte'
+        'nom', 'prix', 'image', 'commentaire', 'contient_porc', 'present_carte', 'categories_plat_id'
     ];
 
     function categorie()
     {
-        return $this->belongTo('App\CategoriePlats', )
+        return $this->belongTo('App\CategoriePlat', 'categories_plat_id');
     }
 
 }

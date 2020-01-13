@@ -2,8 +2,8 @@
 
 @section('liste')
 <?php
-    use App\Plats;
-    $plats = plats::all();
+    use App\Plat;
+    $plats = plat::all();
 ?>
 <table class="table table-striped">
     <thead>

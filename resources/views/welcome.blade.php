@@ -84,6 +84,18 @@
                     Laravel
                 </div>
 
+                <?php 
+                    $categories = App\CategoriePlat::all();
+                    foreach ($categories as  $categorie) {
+                        echo 'la categorie : ' . $categorie['nom'] .' </br>';
+                        $plats = $categorie->plats()->get();
+                        foreach ($plats as $plat) {
+                            echo $plat['nom'] . ', ';
+                        }
+                        
+                    }
+                ?>
+
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
