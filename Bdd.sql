@@ -1,16 +1,5 @@
-CREATE TABLE Plats(
-   id INT AUTO_INCREMENT,
-   nom VARCHAR(50),
-   prix DECIMAL(13,2),
-   image VARCHAR(255),
-   commentaire TEXT,
-   contient_porc TINYINT(1) DEFAULT '0',
-   present_carte TINYINT(1) DEFAULT '0',
-   PRIMARY KEY(id)
-);
-
 CREATE TABLE CategoriesPlats(
-   id VARCHAR(50),
+   id INT AUTO_INCREMENT,
    nom VARCHAR(50),
    PRIMARY KEY(id)
 );
@@ -59,7 +48,7 @@ CREATE TABLE Evenements(
 );
 
 CREATE TABLE CategoriesEvenements(
-   id INT,
+   id INT AUTO_INCREMENT,
    nom VARCHAR(50),
    PRIMARY KEY(id)
 );
@@ -71,13 +60,19 @@ CREATE TABLE Photos(
    PRIMARY KEY(id)
 );
 
-CREATE TABLE Affiche(
+CREATE TABLE Plats(
    id INT AUTO_INCREMENT,
    nom VARCHAR(50),
-   description TEXT,
+   prix DECIMAL(13,2),
+   image VARCHAR(255),
+   commentaire TEXT,
+   contient_porc TINYINT(1),
+   present_carte TINYINT(1),
    id_1 INT NOT NULL,
+   id_2 INT NOT NULL,
    PRIMARY KEY(id),
-   FOREIGN KEY(id_1) REFERENCES Plats(id)
+   FOREIGN KEY(id_1) REFERENCES CategoriesPlats(id),
+   FOREIGN KEY(id_2) REFERENCES CategoriesPlats(id)
 );
 
 CREATE TABLE Reservations(
@@ -95,14 +90,13 @@ CREATE TABLE Reservations(
    FOREIGN KEY(id_3) REFERENCES Clients(id)
 );
 
-CREATE TABLE Plats_Categories(
-   id INT,
-   id_1 VARCHAR(50),
-   id_2 VARCHAR(50),
-   PRIMARY KEY(id, id_1, id_2),
-   FOREIGN KEY(id) REFERENCES Plats(id),
-   FOREIGN KEY(id_1) REFERENCES CategoriesPlats(id),
-   FOREIGN KEY(id_2) REFERENCES CategoriesPlats(id)
+CREATE TABLE Affiche(
+   id INT AUTO_INCREMENT,
+   nom VARCHAR(50),
+   description TEXT,
+   id_1 INT NOT NULL,
+   PRIMARY KEY(id),
+   FOREIGN KEY(id_1) REFERENCES Plats(id)
 );
 
 CREATE TABLE Menus_Plats(
