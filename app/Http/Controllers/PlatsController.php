@@ -39,12 +39,6 @@ class PlatsController extends Controller
         return redirect('home');
     }
 
-    public function show($id)
-    {
-        $plats = plat::find($id);
-        return view('')->with('plat', $plats);
-    }
-
     static public function edit($id)
     {
         $plat = plat::find($id);

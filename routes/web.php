@@ -23,5 +23,8 @@ Route::resource('plat', 'PlatsController')->only([
 Route::resource('affiche', 'AfficheController')->only([
     'create', 'store', 'destroy'
 ]);
+Route::resource('boisson', 'BoissonController')->only([
+    'create', 'store', 'edit', 'update'
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');
