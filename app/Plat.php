@@ -19,4 +19,9 @@ class Plat extends Model
         return $this->belongTo('App\CategoriePlat', 'categories_plat_id');
     }
 
+    function affiche()
+    {
+        return $this->hasMany('App\Affiche', 'plats_id');
+    }
+
 }
