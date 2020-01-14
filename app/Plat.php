@@ -16,7 +16,7 @@ class Plat extends Model
 
     function categorie()
     {
-        return $this->belongTo('App\CategoriePlat', 'categories_plat_id');
+        return $this->belongsTo('App\CategoriePlat', 'categories_plat_id');
     }
 
     function affiche()

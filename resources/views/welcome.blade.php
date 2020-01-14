@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Tôt ou tard</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -81,9 +81,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Tot ou tard
                 </div>
 
+                <h1 class="m-b-md">
+                    à la carte
+                </h1>
                 <?php 
                     $categories = App\CategoriePlat::all();
                     foreach ($categories as  $categorie) {
@@ -92,20 +95,25 @@
                         foreach ($plats as $plat) {
                             echo $plat['nom'] . ', ';
                         }
-                        
+                        echo '</br>';
                     }
                 ?>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <h1 class="m-b-md">
+                    a l'affiche
+                </h1>
+
+                <?php
+                    $affiches = App\Affiche::all();
+                    foreach ($affiches as $affiche) {
+                        $plat = $affiche->plat()->get();
+                        echo $affiche['nom'] . '</br>';
+                        echo $plat[0]['nom'] . ', ' . $plat[0]['prix'] . ' €</br>';
+                        echo $affiche['description'];
+                    }
+                ?>
+
+                
             </div>
         </div>
     </body>

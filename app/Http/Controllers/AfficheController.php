@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Affiche;
 
 class AfficheController extends Controller
 {
@@ -14,42 +15,20 @@ class AfficheController extends Controller
     public function index()
     {
         $affiches = Affiche::all();
-        return view('')->with('affiches', $affiches);
+        return view('')->with('affiche', $affiches);
     }
 
     public function create()
     {
-        return view('affiches.create');
+        return view('affiche.create');
     }
 
     public function store(Request $request)
     {
         $affiches = new Affiche;
         $affiches->nom = $request->input('nom');
-        $affiches->commentaire = $request->input('description');
-
-        $affiches->save();
-
-        return redirect('home');
-    }
-
-    public function show($id)
-    {
-        $affiches = Affiche::find($id);
-        return view('')->with('affiches', $affiches);
-    }
-
-    static public function edit($id)
-    {
-        $affiche = Affiche::find($id);
-        return view('affiches.edit', compact('affiche', 'id'));
-    }
-
-    public function update(Request $request, $id)
-    {
-        $affiches = Affiche::find($id);
-        $affiches->nom = $request->input('nom');
-        $affiches->commentaire = $request->input('description');
+        $affiches->description = $request->input('description');
+        $affiches->plats_id = $request->input('plats_id');
 
         $affiches->save();
 

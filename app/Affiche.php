@@ -11,12 +11,12 @@ class Affiche extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'nom', 'description'
+        'nom', 'description', 'plats_id'
     ];
 
-    function categorie()
+    function plat()
     {
-        return $this->belongTo('App\Plat', 'plats_id');
+        return $this->belongsTo('App\Plat', 'plats_id');
     }
 
 }
