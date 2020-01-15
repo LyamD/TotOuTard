@@ -85,6 +85,25 @@
                 </div>
 
                 <h1 class="m-b-md">
+                    a l'affiche
+                </h1>
+
+                <?php
+                    $affiches = App\Affiche::all();
+
+                    if (!$affiches->isEmpty()) {
+                        foreach ($affiches as $affiche) {
+                            $plat = $affiche->plat()->get();
+                            if (!$plat->isEmpty()) {
+                                echo $affiche['nom'] . '</br>';
+                                echo $plat[0]['nom'] . ', ' . $plat[0]['prix'] . ' €</br>';
+                                echo $affiche['description'];
+                            }
+                        }
+                    }
+                ?>
+
+                <h1 class="m-b-md">
                     à la carte
                 </h1>
                 <?php 
@@ -99,19 +118,7 @@
                     }
                 ?>
 
-                <h1 class="m-b-md">
-                    a l'affiche
-                </h1>
-
-                <?php
-                    $affiches = App\Affiche::all();
-                    foreach ($affiches as $affiche) {
-                        $plat = $affiche->plat()->get();
-                        echo $affiche['nom'] . '</br>';
-                        echo $plat[0]['nom'] . ', ' . $plat[0]['prix'] . ' €</br>';
-                        echo $affiche['description'];
-                    }
-                ?>
+                
 
                 
             </div>
