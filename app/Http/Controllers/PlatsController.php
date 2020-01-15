@@ -64,8 +64,9 @@ class PlatsController extends Controller
 
     static public function destroy($id)
     {
-        $plats = Plat::find($id);
-        $plats->delete();
+        $plat = Plat::find($id);
+        $menus = $plat->menus()->detach();
+        $plat->delete();
 
         return redirect('home');
     }
