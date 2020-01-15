@@ -16,7 +16,7 @@ class Menu extends Model
 
     function plats()
     {
-        return $this->belongsToMany('App\Menu', 'menus_plats', 'plats_id', 'menus_id');
+        return $this->belongsToMany('App\Plat', 'menus_plats', 'menus_id', 'plats_id');
     }
 
 
