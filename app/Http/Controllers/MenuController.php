@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Menu;
+use App\Plat;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
@@ -25,13 +26,15 @@ class MenuController extends Controller
         return redirect('home');
     }
 
-
+    
+    
     public function destroy($id)
     {
         $menu = Menu::find($id);
         $menu->plats()->detach();
         $menu->destroy();
-
-        return redirect('home');
+        
     }
+    
+
 }

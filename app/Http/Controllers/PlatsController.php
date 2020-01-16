@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Plat;
+use App\Menu;
 
 class PlatsController extends Controller
 {
@@ -65,10 +66,53 @@ class PlatsController extends Controller
     static public function destroy($id)
     {
         $plat = Plat::find($id);
+        $plat->affiche()->destroy();
         $menus = $plat->menus()->detach();
-        $plat->delete();
+        $plat->affiche()->destroy();
+        $plat->destroy();
 
         return redirect('home');
+    }
+
+    // Custom
+
+
+    public function addToMenu(Request $request) {
+        $data = array('plats' => $request->checkedPlats, 'action' => $request->action);
+        $action = $data['action'];
+        if ($action == 'delete') {
+            $this->deleteMultiplePlats($data);
+        } elseif ($action == 'detach') {
+            $this->detachFromMenus($data);
+        } else {
+            $this->linkToMenu($data);
+        }
+        return redirect('home');
+        //return view('test')->with('data', $data);
+    }
+    function deleteMultiplePlats($data) {
+        $ids = $data['plats'];
+        foreach ($ids as $id) {
+            var_dump($id);
+            $plat = Plat::find($id);
+            $plat->affiche()->destroy();
+            $plat->menus()->detach();
+            $plat->destroy();
+        }
+    }
+
+    function linkToMenu($data) {
+        $menu = Menu::find($data['action']);
+        $ids = $data['plats'];
+        $menu->plats()->attach($ids);
+    }
+
+    function detachFromMenus($data) {
+        $ids = $data['plats'];
+        foreach ($ids as $id) {
+            $plat = Plat::find($id);
+            $plat->menus()->detach();
+        }
     }
 
 }

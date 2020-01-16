@@ -26,8 +26,10 @@ Route::resource('affiche', 'AfficheController')->only([
 Route::resource('boisson', 'BoissonController')->only([
     'create', 'store', 'edit', 'update'
 ]);
+
 Route::resource('menu', 'MenuController')->only([
     'create', 'store', 'destroy'
 ]);
+Route::post('plat/addToMenu', 'PlatsController@addToMenu')->name('plat.addToMenu');
 
 Route::get('/home', 'HomeController@index')->name('home');
