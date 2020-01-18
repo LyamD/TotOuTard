@@ -87,6 +87,7 @@ class PlatsController extends Controller
         } else {
             $this->linkToMenu($data);
         }
+        
         return redirect('home');
         //return view('test')->with('data', $data);
     }
@@ -113,6 +114,13 @@ class PlatsController extends Controller
             $plat = Plat::find($id);
             $plat->menus()->detach();
         }
+    }
+
+    function removeFromMenu($menu, $plat) {
+        $m = Menu::find($menu);
+        $m->plats()->detach($plat);
+        
+        return redirect('home');
     }
 
 }

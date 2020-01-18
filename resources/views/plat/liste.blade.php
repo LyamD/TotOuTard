@@ -86,11 +86,10 @@
                     <a href="{{action('PlatsController@edit', $plat['id'])}}" class="btn btn-warning">Modifier</a>
                 </td>
                 <td>
-                    <form action="{{action('PlatsController@destroy', $plat['id'])}}" method="post">
+                    {{ Form::open(['route' => ['plat.removeFromMenu', $menu['id'], $plat['id']]]) }}
                         @csrf
-                        <input name="_method" type="hidden" value="DELETE">
-                        <button class="btn btn-danger" type="submit">Supprimer</button>
-                    </form>
+                        <button class="btn btn-danger" type="submit">Enlever du menu</button>
+                    {{ Form::close() }}
                 </td>
             </tr>
             @endforeach
