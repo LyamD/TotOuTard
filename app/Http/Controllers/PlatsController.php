@@ -66,10 +66,10 @@ class PlatsController extends Controller
     static public function destroy($id)
     {
         $plat = Plat::find($id);
-        $plat->affiche()->destroy();
+        $plat->affiche()->delete();
         $menus = $plat->menus()->detach();
-        $plat->affiche()->destroy();
-        $plat->destroy();
+        $plat->affiche()->delete();
+        $plat->delete();
 
         return redirect('home');
     }
@@ -94,11 +94,10 @@ class PlatsController extends Controller
     function deleteMultiplePlats($data) {
         $ids = $data['plats'];
         foreach ($ids as $id) {
-            var_dump($id);
             $plat = Plat::find($id);
-            $plat->affiche()->destroy();
+            $plat->affiche()->delete();
             $plat->menus()->detach();
-            $plat->destroy();
+            $plat->delete();
         }
     }
 

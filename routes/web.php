@@ -20,9 +20,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 // Ressources
-Route::resource('plat', 'PlatsController')->only([
-    'create', 'update', 'edit', 'store', 'destroy'
-]);
+Route::resource('plat', 'PlatsController');
 Route::resource('affiche', 'AfficheController')->only([
     'create', 'store', 'destroy'
 ]);

@@ -101,11 +101,11 @@
                     </div>
                 @endif
 
-                <?php
+                @php
                     $affiches = App\Affiche::all();
                     $menus = App\Menu::all();
                     $categories = App\CategoriePlat::all();
-                ?>
+                @endphp
 
                 <div class="content">
                     <div class="title m-b-md">
@@ -119,7 +119,7 @@
                             a l'affiche
                         </h1>
 
-                        <?php
+                        @php
                             foreach ($affiches as $affiche) {
                                 $plat = $affiche->plat()->get();
                                 if (!$plat->isEmpty()) {
@@ -128,7 +128,7 @@
                                     echo $affiche['description'];
                                 }
                             }
-                        ?>
+                        @endphp
                     @endif
 
                     @if (!$menus->isEmpty())
@@ -138,13 +138,13 @@
 
                         <div id="carouselMenus" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
-                                <?php 
+                                @php 
                                     $compteur = 0; 
-                                ?>
+                                @endphp
                                 @foreach ($menus as $menu)
-                                <?php 
+                                @php 
                                     $plats = $menu->plats()->orderBy('categories_plat_id')->get();
-                                ?>
+                                @endphp
                                     @if ($compteur == 0)
                                         <div class="carousel-item active text-center p-4">
                                             <h5> {{$menu['nom']}} </h5>
@@ -160,9 +160,9 @@
                                             @endforeach
                                         </div>
                                     @endif
-                                    <?php
+                                    @php
                                         $compteur++;
-                                    ?>
+                                    @endphp
                                 @endforeach
 
                             </div>
@@ -182,7 +182,7 @@
                     <h1 class="m-b-md">
                         à la carte
                     </h1>
-                    <?php 
+                    @php 
                         foreach ($categories as  $categorie) {
                             echo 'la categorie : ' . $categorie['nom'] .' </br>';
                             $plats = $categorie->plats()->get();
@@ -191,7 +191,7 @@
                             }
                             echo '</br>';
                         }
-                    ?>
+                    @endphp
 
                     
 

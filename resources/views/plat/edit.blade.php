@@ -4,6 +4,8 @@
 <div class="container">
     <h2>Enregistrer un nouveau plat:</h2><br />
     {{Form::model($plat, ['route' => ['plat.update', $id]])}}
+    @csrf
+    @method('PUT')
 
     <div class="row">
         <div class="col-md-4"></div>
@@ -45,11 +47,18 @@
         </div>
     </div>
 
+    @php
+        $categories = App\CategoriePlat::all();
+    @endphp
     <div class="row">
         <div class="col-md-4"></div>
         <div class="form-group col-md-4">
             {{Form::label('categories_plat_id', 'categorie')}}
-            {{Form::number('categories_plat_id')}}
+            <select name="categories_plat_id">
+                @foreach ($categories as $cat)
+                    <option value="{{$cat['id']}}">{{$cat['nom']}}</option>
+                @endforeach
+            </select>
         </div>
     </div>
 

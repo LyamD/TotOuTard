@@ -1,11 +1,11 @@
 @extends('layouts.homeMenu')
 
 @section('liste')
-<?php
+@php
     $plats = App\plat::all();
     $menus = App\Menu::orderBy('id')->get();
 
-?>
+@endphp
 
 <h1> Tout les plats </h1>
 {!! Form::open(['route' => ['plat.addToMenu']]) !!}
@@ -73,9 +73,9 @@
         @foreach ($menus as $menu)
         <tbody>
             <tr> <th colspan='6'> {{$menu['nom']}} </th> </tr>
-            <?php
+            @php
                 $plats = $menu->plats()->orderBy('categories_plat_id')->get();
-            ?>
+            @endphp
             @foreach($plats as $plat)
             <tr>
                 <td>{{$plat['nom']}}</td>
