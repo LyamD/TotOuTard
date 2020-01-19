@@ -9,7 +9,7 @@ class Reservation extends Model
     protected $table = "Plats";
 
     protected $fillable = [
-        'horaire', 'nbDePersonnes'
+        'horaire', 'nbDePersonnes', 'information'
     ];
 
     function etat()

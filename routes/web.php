@@ -31,6 +31,9 @@ Route::resource('menu', 'MenuController')->only([
     'create', 'store', 'destroy'
 ]);
 
+Route::resource('reservation', 'ReservationController');
+Route::resource('client', 'ClientController');
+
 // Ressources "manuelle"
 Route::post('plat/addToMenu', 'PlatsController@addToMenu')->name('plat.addToMenu');
 

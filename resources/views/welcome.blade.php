@@ -193,8 +193,8 @@
                         }
                     @endphp
 
-                    
 
+                    @include('reservation.formulaire')
                     
                 </div>
             </div>
