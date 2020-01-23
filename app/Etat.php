@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Etat extends Model
 {
-    protected $table = "Etats";
+    protected $table = "etats";
 
     public $timestamps = false;
 

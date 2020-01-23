@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Affiche extends Model
 {
-    protected $table = "Affiches";
+    protected $table = "affiches";
 
     public $timestamps = false;
 

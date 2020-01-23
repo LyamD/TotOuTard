@@ -2,7 +2,7 @@
 
 @section('liste')
 @php
-    $plats = App\plat::all();
+    $plats = App\Plat::all();
     $menus = App\Menu::orderBy('id')->get();
 
 @endphp

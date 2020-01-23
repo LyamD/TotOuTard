@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Boisson extends Model
 {
-    protected $table = "Boissons";
+    protected $table = "boissons";
 
     public $timestamps = false;
 
