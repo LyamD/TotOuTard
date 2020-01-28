@@ -5,8 +5,8 @@
                 <div class="card">
                     <div class="card-header">Example Component</div>
 
-                    <div class="card-body">
-                        I'm an example component.
+                    <div class="card-body" id="leContent">
+                        @{{message}}
                     </div>
                 </div>
             </div>
@@ -20,4 +20,12 @@
             console.log('Component mounted.')
         }
     }
+
+    var leContent = new Vue({
+        el: '#leContent',
+        data: {
+            message: 'Wololo'
+        }
+    })
+
 </script>

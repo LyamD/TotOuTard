@@ -1,203 +1,280 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.main')
 
-        <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+@section('content')
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<!-- Header -->
+<header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+            <h1 class="mx-auto my-0 text-uppercase">Grayscale</h1>
+            <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start
+                Bootstrap.</h2>
+            <a href="#about" class="btn btn-primary js-scroll-trigger">Faire une réservation</a>
+        </div>
+    </div>
+</header>
 
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-
-        <!-- Fonts -->
-        <link rel="dns-prefetch" href="//fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-        <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: white;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-
-            .carousel-item.active,
-            .carousel-item-next,
-            .carousel-item-prev{
-                display:block;
-            }
-
-            .carousel-control-next,
-            .carousel-control-prev {
-                filter: invert(100%);
-            }
-        </style>
-    </head>
-    <body>
-        <div id='app'>
-            <div class="flex-center position-ref full-height">
-                @if (Route::has('login'))
-                    <div class="top-right links">
-                        @auth
-                            <a href="{{ url('/home') }}">Home</a>
-                        @else
-                            <a href="{{ route('login') }}">Login</a>
-
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}">Register</a>
-                            @endif
-                        @endauth
-                    </div>
-                @endif
-
-                @php
-                    $affiches = App\Affiche::all();
-                    $menus = App\Menu::all();
-                    $categories = App\CategoriePlat::all();
-                @endphp
-
-                <div class="content">
-                    <div class="title m-b-md">
-                        Tot ou tard
-                    </div>
-
-                    
-
-                    @if (!$affiches->isEmpty())
-                        <h1 class="m-b-md">
-                            a l'affiche
-                        </h1>
-
-                        @php
-                            foreach ($affiches as $affiche) {
-                                $plat = $affiche->plat()->get();
-                                if (!$plat->isEmpty()) {
-                                    echo $affiche['nom'] . '</br>';
-                                    echo $plat[0]['nom'] . ', ' . $plat[0]['prix'] . ' €</br>';
-                                    echo $affiche['description'];
-                                }
-                            }
-                        @endphp
-                    @endif
-
-                    @if (!$menus->isEmpty())
-                        <h1 class="m-b-md">
-                            Menus
-                        </h1>
-
-                        <div id="carouselMenus" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                @php 
-                                    $compteur = 0; 
-                                @endphp
-                                @foreach ($menus as $menu)
-                                @php 
-                                    $plats = $menu->plats()->orderBy('categories_plat_id')->get();
-                                @endphp
-                                    @if ($compteur == 0)
-                                        <div class="carousel-item active text-center p-4">
-                                            <h5> {{$menu['nom']}} </h5>
-                                            @foreach ($plats as $plat)
-                                               <p> {{$plat['nom']}}</p>
-                                            @endforeach
-                                        </div> 
-                                    @else
-                                        <div class="carousel-item text-center p-4">
-                                            <h5> {{$menu['nom']}} </h5>
-                                            @foreach ($plats as $plat)
-                                               <p> {{$plat['nom']}}</p>
-                                            @endforeach
-                                        </div>
-                                    @endif
-                                    @php
-                                        $compteur++;
-                                    @endphp
-                                @endforeach
-
+<section class="slider_sec mb-5">
+    <div class="container-fluid fix-cont">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="slider_in">
+                    <h4>WORLD-CLASS AMENITIES THAT ARE TO BE</h4>
+                    <h3>BEST EXPERIENCED</h3>
+                    <div id="owl-carousel" class="owl-carousel owl-theme">
+                        <div class="item">
+                            <div class="img_wrp">
+                                <div class="img_text">
+                                    <h5>What is Lorem Ipsum?</h5>
+                                    <p>
+                                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                    </p>
+                                </div>
+                                <img src="https://goo.gl/TXsYn9" alt="">
                             </div>
-
-                            <a class="carousel-control-prev" href="#carouselMenus" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselMenus" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                            </a>
                         </div>
-                    @endif
+                        <div class="item">
+                            <div class="img_wrp">
+                                <div class="img_text">
+                                    <h5>What is Lorem Ipsum?</h5>
+                                    <p>
+                                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                    </p>
+                                </div>
+                                <img src="https://goo.gl/5ADFEH" alt="">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="img_wrp">
+                                <div class="img_text">
+                                    <h5>What is Lorem Ipsum?</h5>
+                                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                    </p>
+                                </div>
+                                <img src="https://goo.gl/Y78H36" alt="">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="img_wrp">
+                                <div class="img_text">
+                                    <h5>What is Lorem Ipsum?</h5>
+                                    <p>
+                                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                    </p>
+                                </div>
+                                <img src="https://goo.gl/AcCvCK" alt="">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="img_wrp">
+                                <div class="img_text">
+                                    <h5>What is Lorem Ipsum?</h5>
+                                    <p>
+                                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                    </p>
+                                </div>
+                                <img src="https://goo.gl/FioWab" alt="">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="img_wrp">
+                                <div class="img_text">
+                                    <h5>What is Lorem Ipsum?</h5>
+                                    <p>
+                                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                    </p>
+                                </div>
+                                <img src="https://goo.gl/hpPnqU" alt="">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="img_wrp">
+                                <div class="img_text">
+                                    <h5>What is Lorem Ipsum?</h5>
+                                    <p>
+                                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                    </p>
+                                </div>
+                                <img src="https://goo.gl/iMmTH2" alt="">
+                            </div>
+                        </div>
+                    </div>
 
-
-                    <h1 class="m-b-md">
-                        à la carte
-                    </h1>
-                    @php 
-                        foreach ($categories as  $categorie) {
-                            echo 'la categorie : ' . $categorie['nom'] .' </br>';
-                            $plats = $categorie->plats()->get();
-                            foreach ($plats as $plat) {
-                                echo $plat['nom'] . ', ';
-                            }
-                            echo '</br>';
-                        }
-                    @endphp
-
-
-                    @include('reservation.formulaire')
-                    
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+</section>
+<!-- // slder sec -->
+
+
+<div class="container">
+
+    <div class="row no-gutters">
+        <div class="col-md-6">
+            <div class="sched d-block d-lg-flex">
+                <div class="bg-image order-2" style="background-image: url('images/dishes_4.jpg');" data-aos="fade">
+                </div>
+                <div class="text order-1">
+                    <h3>Grilled Caesar salad, shaved reggiano</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus...</p>
+                    <p class="text-primary h3">$12.00</p>
+                </div>
+
+            </div>
+
+            <div class="sched d-block d-lg-flex">
+                <div class="bg-image" style="background-image: url('images/dishes_1.jpg');" data-aos="fade"></div>
+                <div class="text">
+                    <h3>Spicy Calamari and beans</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus...</p>
+                    <p class="text-primary h3">$12.00</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+            <div class="sched d-block d-lg-flex">
+                <div class="bg-image order-2" style="background-image: url('images/dishes_2.jpg');" data-aos="fade">
+                </div>
+                <div class="text order-1">
+                    <h3>Bacon wrapped wild gulf prawns</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus...</p>
+                    <p class="text-primary h3">$18.00</p>
+
+                </div>
+
+            </div>
+
+            <div class="sched d-block d-lg-flex">
+                <div class="bg-image" style="background-image: url('images/dishes_3.jpg');" data-aos="fade"></div>
+                <div class="text">
+                    <h3>Seared ahi tuna fillet*, honey-ginger sauce</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus...</p>
+                    <p class="text-primary h3">$16.00</p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@php
+$affiches = App\Affiche::all();
+$menus = App\Menu::all();
+$categories = App\CategoriePlat::all();
+@endphp
+
+@if (!$affiches->isEmpty())
+<section>
+    <div class="container">
+        <h1 class="m-b-md">
+            a l'affiche
+        </h1>
+
+        @php
+        foreach ($affiches as $affiche) {
+        $plat = $affiche->plat()->get();
+        if (!$plat->isEmpty()) {
+        echo $affiche['nom'] . '</br>';
+        echo $plat[0]['nom'] . ', ' . $plat[0]['prix'] . ' €</br>';
+        echo $affiche['description'];
+        }
+        }
+        @endphp
+    </div>
+</section>
+@endif
+
+<section>
+    <div class="container">
+        @if (!$menus->isEmpty())
+        <h1 class="m-b-md">
+            Menus
+        </h1>
+
+        <div id="carouselMenus" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @php
+                $compteur = 0;
+                @endphp
+                @foreach ($menus as $menu)
+                @php
+                $plats = $menu->plats()->orderBy('categories_plat_id')->get();
+                @endphp
+                @if ($compteur == 0)
+                <div class="carousel-item active text-center p-4">
+                    <h5> {{$menu['nom']}} </h5>
+                    @foreach ($plats as $plat)
+                    <p> {{$plat['nom']}}</p>
+                    @endforeach
+                </div>
+                @else
+                <div class="carousel-item text-center p-4">
+                    <h5> {{$menu['nom']}} </h5>
+                    @foreach ($plats as $plat)
+                    <p> {{$plat['nom']}}</p>
+                    @endforeach
+                </div>
+                @endif
+                @php
+                $compteur++;
+                @endphp
+                @endforeach
+
+            </div>
+
+            <a class="carousel-control-prev" href="#carouselMenus" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselMenus" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        @endif
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h1 class="m-b-md">
+            à la carte
+        </h1>
+        @php
+        foreach ($categories as $categorie) {
+        echo 'la categorie : ' . $categorie['nom'] .' </br>';
+        $plats = $categorie->plats()->get();
+        foreach ($plats as $plat) {
+        echo $plat['nom'] . ', ';
+        }
+        echo '</br>';
+        }
+        @endphp
+
+
+        @include('reservation.formulaire')
+    </div>
+</section>
+
+@endsection
