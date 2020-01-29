@@ -10,6 +10,7 @@ require('./owl.carousel');
 window.Vue = require('vue');
 
 const flatpickr = require("flatpickr");
+require("flatpickr/dist/themes/light.css");
 
 /**
  * The following block of code may be used to automatically register your
@@ -104,7 +105,7 @@ const app = new Vue({
     $(window).scroll(navbarCollapse);
 
 
-    $('#owl-carousel').owlCarousel({
+    $('#owl-carousel-menus').owlCarousel({
       loop: true,
       margin: 50,
       responsiveClass: true,
@@ -127,8 +128,22 @@ const app = new Vue({
               loop: true
           }
       }
-  });
-  })(jQuery); // End of use strict
+    });
+
+    $("#owl-evenement").owlCarousel({ 
+      items: 1,
+      center: true,
+      loop: true,
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      singleItem : true,
+    });
+
+    
+
+    $('#datePicker').flatpickr();
+
+})(jQuery); // End of use strict
   
 
   

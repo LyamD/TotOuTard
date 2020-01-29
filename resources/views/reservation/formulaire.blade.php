@@ -44,5 +44,7 @@
         </div>
     </div>
 
+    <input id="datePicker">
+
     {{Form::submit('Valider')}}
     {{Form::close()}}
