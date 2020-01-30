@@ -20,41 +20,38 @@ $categories = App\CategoriePlat::all();
     </div>
 </header>
 
-<section class="slider_sec mb-5 bg-dark text-light text-center">
+<section class="slider_sec mb-5 bg-light text-dark text-center">
     <div class="container-fluid fix-cont">
         <div class="row">
             <div class="col-lg-12">
                 <div class="slider_in">
                     <h4>Cartes et Menus</h4>
                     <h3>...</h3>
-                    <div id="owl-carousel-menus" class="owl-carousel owl-theme">
-                        <div class="item">
-                            <div class="img_wrp container">
-                                <div class="row" style="background-image: url('https://goo.gl/TXsYn9');">
+                    <div id="owl-carousel-menus" class="owl-carousel owl-theme p-5 ">
+                        <div class="item m-1">
+                            <img src="images/plat-carte-bg.jpg" class="img-fluid item-img">
+                            <div class="item-text text-white">
+                                <div class="row">
                                     <div class="col-6">
                                         <h5 class="m-b-md">
                                             à la carte
                                         </h5>
+                                        <p>
                                         @php
                                             foreach ($categories as $categorie) {
-                                            echo 'la categorie : ' . $categorie['nom'] .' </br>';
+                                            echo 'la categorie : ' . $categorie['nom'] .' <br>';
                                             $plats = $categorie->plats()->get();
                                             foreach ($plats as $plat) {
                                             echo $plat['nom'] . ', ';
                                             }
-                                            echo '</br>';
+                                            echo '<br>';
                                             }
                                         @endphp
+                                        </p>
                                     </div>
                                     <div class="col-6">
                                         <h5>What is Lorem Ipsum?</h5>
-                                        <p>
-                                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                            tempor
-                                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                            consequat.
-                                        </p>
+                                        
                                     </div>
 
                                 </div>
@@ -64,14 +61,13 @@ $categories = App\CategoriePlat::all();
                         @php
                         $plats = $menu->plats()->orderBy('categories_plat_id')->get();
                         @endphp
-                        <div class="item">
-                            <div class="img_wrp">
-                                <div class="text-white">
-                                    <h5> {{$menu['nom']}} </h5>
-                                    @foreach ($plats as $plat)
-                                    <p> {{$plat['nom']}}</p> </br>
-                                    @endforeach
-                                </div>
+                        <div class="item m-1">
+                            <img src="images/plat-carte-bg.jpg" class="img-fluid item-img">
+                            <div class="item-text text-white">
+                                <h5> {{$menu['nom']}} </h5>
+                                @foreach ($plats as $plat)
+                                <p> {{$plat['nom']}}</p> </br>
+                                @endforeach
                             </div>
                         </div>
                         @endforeach
@@ -83,6 +79,29 @@ $categories = App\CategoriePlat::all();
     </div>
 </section>
 <!-- // slder sec -->
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col">hey</div>
+                    <div class="col">
+                        <img class="img-fluid" src="images/dishes_1.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col">hey</div>
+                    <div class="col">
+                        <img class="img-fluid" src="images/dishes_1.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 <section>

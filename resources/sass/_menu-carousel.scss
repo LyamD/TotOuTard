@@ -19,10 +19,30 @@
     font-weight: 300;
   }
 
-  .img_wrp {
-    line-height: 0px;
-    background: $primary;
-    padding: 5px;
+  .item {
+    border-radius: 8px;
+    border: 2px solid $dark;
+  }
+  .item:hover {
+    box-shadow: 0 0 2px 1px $dark;
+  }
+
+  .item-img {
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
+    max-height: 50em;
+    
+  }
+
+  .item-text {
+    background-color: $black;
+    background-color: rgba($primary, 0.6);
+    position: absolute;
+    width: 90%;
+    max-height: 30em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .owl-prev {

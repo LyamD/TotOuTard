@@ -11,7 +11,7 @@ class Plat extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'nom', 'prix', 'image', 'commentaire', 'contient_porc', 'present_carte', 'categories_plat_id'
+        'nom', 'prix', 'commentaire', 'contient_porc', 'present_carte', 'categories_plat_id'
     ];
 
     function categorie()
