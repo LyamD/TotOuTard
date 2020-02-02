@@ -16,12 +16,12 @@ class PlatsController extends Controller
     public function index()
     {
         $plats = Plat::all();
-        return view('')->with('plat', $plats);
+        return view('admin.nourriture.plat.liste')->with('plats', $plats);
     }
 
     public function create()
     {
-        return view('plat.create');
+        return view('admin.nourriture.plat.create');
     }
 
     public function store(Request $request)
@@ -43,7 +43,7 @@ class PlatsController extends Controller
     static public function edit($id)
     {
         $plat = plat::find($id);
-        return view('plat.edit', compact('plat', 'id'));
+        return view('admin.nourriture.plat.edit', compact('plat', 'id'));
     }
 
     

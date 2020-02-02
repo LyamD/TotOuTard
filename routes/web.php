@@ -26,15 +26,15 @@ Auth::routes();
 
 // Ressources
 Route::resource('plat', 'PlatsController');
+
+Route::resource('boisson', 'BoissonController');
+
+Route::resource('menu', 'MenuController');
+
 Route::resource('affiche', 'AfficheController')->only([
-    'create', 'store', 'destroy'
+    'index', 'create', 'store', 'destroy'
 ]);
-Route::resource('boisson', 'BoissonController')->only([
-    'create', 'store', 'edit', 'update'
-]);
-Route::resource('menu', 'MenuController')->only([
-    'create', 'store', 'destroy'
-]);
+
 
 Route::resource('reservation', 'ReservationController');
 Route::resource('client', 'ClientController');

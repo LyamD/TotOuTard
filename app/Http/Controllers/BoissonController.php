@@ -15,12 +15,12 @@ class BoissonController extends Controller
     public function index()
     {
         $boissons = boisson::all();
-        return view('')->with('boisson', $boissons);
+        return view('admin.nourriture.boisson.liste')->with('boissons', $boissons);
     }
 
     public function create()
     {
-        return view('boisson.create');
+        return view('admin.nourriture.boisson.create');
     }
 
     public function store(Request $request)
@@ -41,7 +41,7 @@ class BoissonController extends Controller
     static public function edit($id)
     {
         $boisson = boisson::find($id);
-        return view('boisson.edit', compact('boisson', 'id'));
+        return view('admin.nourriture.boisson.edit', compact('boisson', 'id'));
     }
 
     public function update(Request $request, $id)

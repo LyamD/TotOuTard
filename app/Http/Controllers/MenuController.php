@@ -3,15 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Menu;
-use App\Plat;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
 
+    public function index()
+    {
+        $menus = Menu::orderBy('id')->get();
+        return view('admin.nourriture.menu.liste')->with('menus', $menus);
+    }
+
     public function create()
     {
-        return view('menu.create');
+        return view('admin.nourriture.menu.create');
     }
 
 
@@ -32,7 +37,9 @@ class MenuController extends Controller
     {
         $menu = Menu::find($id);
         $menu->plats()->detach();
-        $menu->destroy();
+        $menu->delete();
+
+        return redirect('home');
         
     }
     

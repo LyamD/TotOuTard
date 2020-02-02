@@ -11,7 +11,7 @@
         <div class="col-md-4"></div>
         <div class="form-group col-md-4">
             {{Form::label('nom', 'Nom :')}}
-            {{Form::text('nom')}}
+            {{Form::text('nom', null, ['class' => 'form-control'])}}
         </div>
     </div>
 
@@ -27,7 +27,7 @@
         <div class="col-md-4"></div>
         <div class="form-group col-md-4">
             {{Form::label('commentaire', 'Commentaire :')}}
-            {{Form::textarea('commentaire')}}
+            {{Form::textarea('commentaire', null, ['class' => 'form-control'])}}
         </div>
     </div>
 
@@ -35,7 +35,7 @@
         <div class="col-md-4"></div>
         <div class="form-group col-md-4">
             {{Form::label('contient_porc', 'Contient du porc :')}}
-            {{Form::checkbox('contient_porc', '1')}}
+            {{Form::checkbox('contient_porc', '1' , false)}}
         </div>
     </div>
 
@@ -54,7 +54,7 @@
         <div class="col-md-4"></div>
         <div class="form-group col-md-4">
             {{Form::label('categories_plat_id', 'categorie')}}
-            <select name="categories_plat_id">
+            <select name="categories_plat_id" class="form-control">
                 @foreach ($categories as $cat)
                     <option value="{{$cat['id']}}">{{$cat['nom']}}</option>
                 @endforeach
@@ -62,7 +62,7 @@
         </div>
     </div>
 
-    {{Form::submit('Valider')}}
+    {{Form::submit('Valider', ['class' => 'form-control'])}}
     {{Form::close()}}
 
 </div>

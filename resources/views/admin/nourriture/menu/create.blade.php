@@ -10,7 +10,7 @@
         <div class="col-md-4"></div>
         <div class="form-group col-md-4">
             {{Form::label('nom', 'Nom :')}}
-            {{Form::text('nom')}}
+            {{Form::text('nom', null, ['class' => 'form-control'])}}
         </div>
     </div>
 
@@ -23,7 +23,7 @@
     </div>
 
 
-    {{Form::submit('Valider')}}
+    {{Form::submit('Valider', ['class' => 'form-control'])}}
     {{Form::close()}}
 
 </div>
