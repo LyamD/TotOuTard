@@ -1,8 +1,6 @@
 
-/* Owl Carousel pour evenements*/
+// De base
 .owl-carousel {
-
-
 	.owl-item {
 		transition: .3s all ease-in-out;
 		opacity: .2;
@@ -10,7 +8,6 @@
 			opacity: 1;
 		}
 	}
-	
 	.owl-nav {
 		position: absolute;
 		top: 50%;
@@ -89,192 +86,154 @@
 		}
 	}
 	// big slider
-
-	&.home-slider, &.home-slider-loop-false {
-		z-index: 1;
-		position: relative;
-
-		
-		.btn-link {
-			color: $white;
-		}
-		.owl-nav {
-			opacity: 0;
-			visibility: hidden;
-			transition: .3s all ease;
-			button {
-				color: $white;
-			}
-		}
-		&:focus, &:hover {
-			.owl-nav {
-				opacity: 1;
-				visibility: visible;
-			}
-		}
-
-		.slider-item {
-			background-size: cover;
-			background-repeat: no-repeat;
-			background-position: center center;
-			height: calc(100vh);
-			min-height: 700px;	
-			position: relative;
-			&:before {
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background: rgba(0,0,0,.2);
-				content: "";
-			}
-			// .slider-overlay {
-			// 	position: absolute;
-			// }
-			.slider-text {
-				color: $white;
-				height: calc(100vh);
-				min-height: 700px;
-				.child-name {
-					font-size: 40px;
-					color: $white;
-				}
-				h1 {
-					font-size: 5rem;
-					color: $white;
-					line-height: 1.2;
-					font-weight: 800!important;
-					text-transform: uppercase;
-				}
-				p {
-					font-size: 20px;
-					line-height: 1.5;
-					font-weight: 300;
-					color: rgba(255,255,255,1);
-				}
-				a {
-					color: $white;
-					text-decoration: underline;
-				}
-				.btn {
-					text-decoration: none;
-				}
-			}
-			
-		}
-		&.inner-page {
-			.slider-item {
-				height: calc(50vh - 117px);
-				min-height: 550px;	
-				.slider-text {
-					color: $white;
-					height: calc(50vh - 117px);
-					min-height: 550px;
-				}
-			}
-		}
-		.owl-dots {
-			position: absolute;
-			bottom: 100px;
-			width: 100%;
-
-			.owl-dot {
-				width: 10px;
-				height: 10px;
-				margin: 5px;
-				border-radius: 50%;
-				border: 2px solid rgba(255,255,255,.5);
-				outline: none!important;
-				position: relative;
-				transition: .3s all ease;
-				&.active {
-					border: 2px solid rgba(255,255,255,1);
-					span {	
-						background: rgba(255,255,255,1);
-					}	
-				}
-			}
-
-		}
-	}
-	&.major-caousel {
-		.owl-stage-outer {
-			padding-top: 30px;
-			padding-bottom: 30px;
-		}
-		.owl-nav {
-			.owl-prev, .owl-next {
-				transition: .3s all ease;
-				color: gray('700');
-				&:hover, &:focus {
-					color: gray('600');
-					outline: none;
-				}
-				&.disabled {
-					color: gray('300');
-				}
-			}
-			.owl-prev {
-				left: -60px!important;
-			}
-			.owl-next {
-				right: -60px!important;
-			}
-		}
-		.owl-dots {
-			bottom: -30px!important;
-			position: relative;
-		}
-	}
 }
-.slider-item {
-			background-size: cover;
-			background-repeat: no-repeat;
-			background-position: center center;
-			height: calc(100vh);
-			min-height: 700px;	
-			position: relative;
-			&:before {
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background: rgba(0,0,0,.2);
-				content: "";
-			}
-			// .slider-overlay {
-			// 	position: absolute;
-			// }
-			.slider-text {
-				color: $white;
-				height: calc(100vh);
-				min-height: 700px;
-				.child-name {
-					font-size: 40px;
-					color: $white;
-				}
-				h1 {
-					font-size: 5rem;
-					color: $white;
-					line-height: 1.2;
-					font-weight: 800!important;
-					text-transform: uppercase;
-				}
-				p {
-					font-size: 20px;
-					line-height: 1.5;
-					font-weight: 300;
-					color: rgba(255,255,255,1);
-				}
-				a {
-					color: $white;
-					text-decoration: underline;
-				}
-				.btn {
-					text-decoration: none;
-				}
-			}
-			
-		}
+
+//Carousel des menus
+.slider_sec {
+
+	.slider_in {
+	  padding: 65px 40px 80px 40px;
+	}
+  
+  
+	h3 {
+	  margin: 0px 0 45px 0;
+	  padding: 10px 0 0 0;
+	  line-height: 1;
+	  font-weight: 600;
+	}
+  
+	h4 {
+	  margin: 0px;
+	  padding: 0px 0 0 0;
+	  line-height: 1;
+	  font-weight: 300;
+	}
+  
+	.item {
+	  border-radius: 8px;
+	}
+	
+	.item-img {
+	  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+	  border-radius: 8px;
+	  filter: blur(1px);
+	  -webkit-filter: blur(1px);
+	  -webkit-filter: sepia(0.3);
+	  filter: sepia(0.3);
+	  max-height: 60em;
+  
+	  &:hover {
+		box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+		
+	  }
+  
+	  // Enlever commentaire et image dans html pour remettre fond gradient
+	  //min-height: 60em;;
+	  //background-image: linear-gradient(45deg, $primary 0%, $secondary 100%);
+	  
+	}
+  
+	.item-text {
+	  border-radius: 10px;
+	  text-overflow: ellipsis;
+	  @media(max-width: 1024px) {
+		overflow: scroll; 
+	  }
+	  background-color: $white;
+	  background-color: rgba($black, 0.6);
+	  position: absolute;
+	  width: 90%;
+	  max-height: 90%;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	}
+  
+	.owl-prev {
+	  position: absolute;
+	  z-index: 10;
+	  display: inline-block;
+	  left: -104px;
+	  cursor: pointer;
+	  font-size: 0.1px;
+	  top: 37%;
+	  width: 95px;
+	  height: 140px;
+	  background: #fff url(https://goo.gl/kLnzFJ) no-repeat;
+	}
+  
+	.owl-next {
+	  position: absolute;
+	  z-index: 10;
+	  display: inline-block;
+	  right: -51px;
+	  cursor: pointer;
+	  font-size: 0.1px;
+	  top: 37%;
+	  width: 45px;
+	  height: 140px;
+	  background: #fff url(https://goo.gl/ipLMit) no-repeat center;
+	}
+  
+	&:after {
+		content:  "";
+		width: 100%;
+		height: 240px;
+		background: $light;
+		z-index: 0;
+		//bottom: -210px;
+		background-color: $light;
+		left: 0;
+		position: absolute;
+		transform: skewY(-6deg);
+		transform-origin: top left;
+	}
+  
+	&:before {
+	  content:  "";
+	  width: 100%;
+	  height: 200px;
+	  background: $white;
+	  z-index: 0;
+	  //bottom: -210px;
+	  background-color: $white;
+	  left: 0;
+	  position: absolute;
+	  transform: skewY(-6deg);
+	  transform-origin: top left;
+  }
+  
+  }
+  
+  
+  //Carousel evenement
+
+
+  #owl-evenement {
+	  position: relative;
+	  height: 100%;
+	  
+	  div:not(.owl-controls) {
+		  height: 100%;
+	  }
+	  
+	  .item img{
+	  display: block;
+	  max-width: 100%;
+	  max-height: 100%;
+	  }
+	  
+	  .owl--text {
+		  position: absolute;
+		  bottom: 4em;
+		  left: 2em;
+		  width: 20em;
+		  height: 8em;
+		  padding: 1em;
+		  background: rgba(218, 31, 31, 0.5);
+		  border-radius: 4px;
+	  }
+  }
+  

@@ -25,12 +25,21 @@ class AfficheController extends Controller
 
     public function store(Request $request)
     {
-        $affiches = new Affiche;
-        $affiches->nom = $request->input('nom');
-        $affiches->description = $request->input('description');
-        $affiches->plats_id = $request->input('plats_id');
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
-        $affiches->save();
+        $path = $request->file('image')->store(
+            'platsAffiche', 'image_upload'
+        );
+
+        $affiche = new Affiche;
+        $affiche->nom = $request->input('nom');
+        $affiche->description = $request->input('description');
+        $affiche->plats_id = $request->input('plats_id');
+        $affiche->imageName = $path;
+
+        $affiche->save();
 
         return redirect('home');
     }

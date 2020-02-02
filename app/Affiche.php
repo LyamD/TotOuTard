@@ -11,7 +11,7 @@ class Affiche extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'nom', 'description', 'plats_id'
+        'nom', 'imageName', 'description', 'plats_id'
     ];
 
     function plat()

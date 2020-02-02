@@ -17,6 +17,10 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <!-- MapBox-->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css' rel='stylesheet' />
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
@@ -53,11 +57,11 @@
 
         @yield('content')
 
-        <footer class="site-footer" role="contentinfo">
+        <footer class="site-footer bg-primary text-white" role="contentinfo">
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-md-4 mb-5">
-                        <h3>About Us</h3>
+                        <h3>Retrouvez nous aussi sur</h3>
                         <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus et dolor
                             blanditiis consequuntur ex voluptates perspiciatis omnis unde minima expedita.</p>
                         <ul class="list-unstyled footer-link d-flex footer-social">
@@ -70,31 +74,38 @@
                     </div>
                     <div class="col-md-5 mb-5">
                         <div class="mb-5">
-                            <h3>Opening Hours</h3>
+                            <h3>Horaires</h3>
                             <p><strong class="d-block font-weight-normal text-black">Sunday-Thursday</strong> 5AM - 10PM
                             </p>
                         </div>
                         <div>
-                            <h3>Contact Info</h3>
+                            <h3>Nous contacter</h3>
                             <ul class="list-unstyled footer-link">
                                 <li class="d-block">
-                                    <span class="d-block text-black">Address:</span>
-                                    <span>34 Street Name, City Name Here, United States</span></li>
-                                <li class="d-block"><span class="d-block text-black">Phone:</span><span>+1 242 4942
-                                        290</span></li>
-                                <li class="d-block"><span
-                                        class="d-block text-black">Email:</span><span>info@yourdomain.com</span></li>
+                                    <span class="d-block text-black">Adresse :</span>
+                                    <span>284 Rue de la Digue 30140 Meyrannes</span>
+                                </li>
+                                <li class="d-block">
+                                    <span class="d-block text-black">Téléphone:</span>
+                                    <span> +33 4 66 24 84 37 </span>
+                                </li>
+                                <li class="d-block">
+                                    <span class="d-block text-black">Email:</span>
+                                    <span>info@yourdomain.com</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-3 mb-5">
-                        <h3>Quick Links</h3>
-                        <ul class="list-unstyled footer-link">
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Terms of Use</a></li>
-                            <li><a href="#">Disclaimers</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
+                        <h3>Position :</h3>
+                        <div id='map' style='width: 400px; height: 300px;'></div>
+                        <script>
+                        mapboxgl.accessToken = 'pk.eyJ1IjoibHlhbSIsImEiOiJjam4xdXZpYncxeWlpM3FxbG13NG1hZnF6In0.1STn3brazLCiVhNaStbn2w';
+                        var map = new mapboxgl.Map({
+                            container: 'map',
+                            style: 'mapbox://styles/mapbox/streets-v11'
+                        });
+                        </script>
                     </div>
                     <div class="col-md-3">
 

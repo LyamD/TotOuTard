@@ -20,17 +20,17 @@ $categories = App\CategoriePlat::all();
     </div>
 </header>
 
-<section class="slider_sec mb-5 bg-light text-dark text-center">
+<section class="slider_sec mb-5 bg-white text-dark text-center">
     <div class="container-fluid fix-cont">
         <div class="row">
             <div class="col-lg-12">
                 <div class="slider_in">
                     <h4>Cartes et Menus</h4>
                     <h3>...</h3>
-                    <div id="owl-carousel-menus" class="owl-carousel owl-theme p-5 ">
-                        <div class="item m-1">
+                    <div id="owl-carousel-menus" class="owl-carousel owl-theme p-1 ">
+                        <div class="item m-1 pb-3">
                             <img src="images/plat-carte-bg.jpg" class="img-fluid item-img">
-                            <div class="item-text text-white">
+                            <div class="item-text text-white ">
                                 <div class="row">
                                     <div class="col-6">
                                         <h5 class="m-b-md">
@@ -80,73 +80,79 @@ $categories = App\CategoriePlat::all();
 </section>
 <!-- // slder sec -->
 
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="row">
-                    <div class="col">hey</div>
-                    <div class="col">
-                        <img class="img-fluid" src="images/dishes_1.jpg">
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="row">
-                    <div class="col">hey</div>
-                    <div class="col">
-                        <img class="img-fluid" src="images/dishes_1.jpg">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section>
-    <h1>Les photos de nos derniers évènements</h1>
-    <div id="owl-evenement" class="owl-carousel">
-        <div class="item">
-            <img src="images/Evenement/Evenement1.jpg" class="img-fluid">
-            <div class="owl-text">
-                hehehehhh
-            </div>
-        </div>
-        <div class="item">
-            <img src="images/Evenement/Evenement1.jpg" class="img-fluid">
-            <div class="owl-text">
-                hehehehhh
-            </div>
-        </div>
-    </div>
-</section>
 
 
 
 @if (!$affiches->isEmpty())
-<section>
-    <div class="container">
-        <h1 class="m-b-md">
-            a l'affiche
-        </h1>
-
-        @php
-        foreach ($affiches as $affiche) {
-        $plat = $affiche->plat()->get();
-        if (!$plat->isEmpty()) {
-        echo $affiche['nom'] . '</br>';
-        echo $plat[0]['nom'] . ', ' . $plat[0]['prix'] . ' €</br>';
-        echo $affiche['description'];
-        }
-        }
-        @endphp
+<div class="bg-light">
+<section class="m-3">
+    <div class="container platContainer text-primary">
+        <div class="row justify-content-center">
+            <div class="col-6 mb-3">
+                <h1 class="text-center">
+                    Nos Meilleurs plat
+                </h1>
+            </div>
+        </div>
+        @foreach ($affiches as $affiche)
+            @php
+                $plat = $affiche->plat()->get();
+            @endphp
+            @if (!$plat->isEmpty())
+                
+            
+            <div class="row justify-content-center">
+                <div class="col-8 plat-affiche text-center text-black pr-0">
+                    <div class="row">
+                        <div class="col col-md-6 p-5">
+                            <h4>{{$affiche['nom']}}</h4>
+                            <h5 class="mt-3">{{$plat[0]['nom']}}</h5>
+                            <p class="mt-5">{{$affiche['description']}} </p>
+                        </div>
+                        <div class="col col-md-6 mr-0">
+                            <img class="img-fluid" src="images/{{$affiche['imageName']}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
+        @endforeach
     </div>
 </section>
+</div>
 @endif
 
+<section class="pt-5 text-center photo-evenement bg-white">
+    <h1>Les photos de nos derniers évènements</h1>
+    <div id="owl-evenement" class="owl-carousel">
+        {{-- @php
+            $dirname = "images/Evenement/";
+            $images = glob($dirname."*.png");
+        @endphp
+        @foreach ($images as $image)
+            <div class="item">
+            <img src="images/Evenement/Evenement1.jpg" class="img-fluid">
+            <div class="owl-text">
+                hehehehhh
+            </div>
+        </div>
+        @endforeach --}}
+            
+        
+        <div class="item">
+            <img src="images/Evenement/Evenement1.jpg" class="img-fluid">
+            <div class="owl-text">
+                hehehehhh
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
 <section>
-    <div class="container">
+    <div class="container p-5">
         <div class="row">
             <div class="col-6">
                 @include('reservation.formulaire')
