@@ -20,7 +20,7 @@ $categories = App\CategoriePlat::all();
     </div>
 </header>
 
-<section class="slider_sec mb-5 bg-white text-dark text-center">
+<section id="menus" class="slider_sec mb-5 bg-white text-dark text-center">
     <div class="container-fluid fix-cont">
         <div class="row">
             <div class="col-lg-12">
@@ -84,8 +84,8 @@ $categories = App\CategoriePlat::all();
 
 
 @if (!$affiches->isEmpty())
-<div class="bg-light">
-<section class="m-3">
+<div class="bg-light pb-5">
+<section id="affiche" class="m-3">
     <div class="container platContainer text-primary">
         <div class="row justify-content-center">
             <div class="col-6 mb-3">
@@ -102,14 +102,14 @@ $categories = App\CategoriePlat::all();
                 
             
             <div class="row justify-content-center">
-                <div class="col-8 plat-affiche text-center text-black pr-0">
+                <div class="col-6 plat-affiche text-center text-black pr-0">
                     <div class="row">
-                        <div class="col col-md-6 p-5">
+                        <div class="col col-l-6 p-5">
                             <h4>{{$affiche['nom']}}</h4>
                             <h5 class="mt-3">{{$plat[0]['nom']}}</h5>
                             <p class="mt-5">{{$affiche['description']}} </p>
                         </div>
-                        <div class="col col-md-6 mr-0">
+                        <div class="col col-l-6 mr-0">
                             <img class="img-fluid" src="images/{{$affiche['imageName']}}">
                         </div>
                     </div>
@@ -122,8 +122,14 @@ $categories = App\CategoriePlat::all();
 </div>
 @endif
 
-<section class="pt-5 text-center photo-evenement bg-white">
-    <h1>Les photos de nos derniers évènements</h1>
+<section id="photos" class="pt-5 text-center photo-evenement">
+    <div class="row justify-content-center">
+        <div class="card col-4 m-3 photos-text-card">
+            <div class="card-body">
+                <h1>Les photos de nos derniers évènements</h1>
+            </div>
+        </div>
+    </div>
     <div id="owl-evenement" class="owl-carousel">
         {{-- @php
             $dirname = "images/Evenement/";
@@ -151,14 +157,14 @@ $categories = App\CategoriePlat::all();
 
 
 
-<section>
-    <div class="container p-5">
-        <div class="row">
-            <div class="col-6">
-                @include('reservation.formulaire')
-            </div>
-            <div class="col-6">
+<section id="reservation" class="mt-3">
+    <div class="container p-5 text-center ">
+        <div class="row ">
+            <div class="col-md-6">
                 <img src="images/Evenement/affiche.jpg" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                @include('reservation.formulaire')
             </div>
         </div>
     </div>

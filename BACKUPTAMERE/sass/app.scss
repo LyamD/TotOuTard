@@ -1,17 +1,22 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+
+
 @import 'variables.scss';
 @import 'navbar.scss';
 @import 'masthead.scss';
 @import 'affiche.scss';
-@import 'buttons.scss';
-@import 'contact.scss';
 @import 'carousel.scss';
-@import 'dividers.scss';
+@import 'buttons.scss';
+@import 'footer.scss';
 @import 'owl.carousel.scss';
 
 body {
-  font-family: 'Nunito';
+  font-family: 'Nunito', sans-serif !important;
   letter-spacing: 0.0625em;
 }
+
 
 a {
   color: $primary;

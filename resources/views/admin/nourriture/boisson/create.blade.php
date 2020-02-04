@@ -26,7 +26,7 @@
         <div class="col-md-4"></div>
         <div class="form-group col-md-4">
             {{Form::label('description', 'Description :')}}
-            {{Form::textarea('description')}}
+            {{Form::textarea('description', null, ['class' => 'form-control'])}}
         </div>
     </div>
 

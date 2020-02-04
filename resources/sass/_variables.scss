@@ -1,22 +1,4 @@
-// Body
-$body-bg: #f8fafc;
-
-// Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
-
-// Colors
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66d9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+// Variables
 
 $white: #fff !default;
 $gray-100: #f8f9fa !default;
@@ -31,7 +13,34 @@ $gray-900: #212529 !default;
 $black: #161616 !default;
 
 $primary: #3f2a1d !default;
-$secondary: #24150e !default;
-$danger: #a40606 !default;
-$light: #8c7462 !default;
-$dark: #1b1924 !default;
+$light : #97745E !default;
+$dark : #151318 !default;
+
+/*
+ * 	Default theme - Owl Carousel CSS File
+ */
+
+$color-base: #869791 !default;
+$color-white: #FFF !default;
+$color-gray: #D6D6D6 !default;
+
+//nav
+
+$nav-color: $color-white !default;
+$nav-color-hover: $color-white !default;
+$nav-font-size: 14px !default;
+$nav-rounded: 3px !default;
+$nav-margin: 5px !default;
+$nav-padding: 4px 7px !default;
+$nav-background: $color-gray !default;
+$nav-background-hover: $color-base !default;
+$nav-disabled-opacity: 0.5 !default;
+
+//dots
+
+$dot-width: 10px !default;
+$dot-height: 10px !default;
+$dot-rounded: 30px !default;
+$dot-margin: 5px 7px !default;
+$dot-background: $color-gray !default;
+$dot-background-active: $color-base !default;

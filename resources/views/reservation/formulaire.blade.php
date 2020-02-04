@@ -1,13 +1,14 @@
 
 
-<h1 class="m-b-md">
-    Faire une reservation
+<h1 class="mb-5">
+    Faire une réservation
 </h1>
 
 
-    <h3>Contact</h3>
+    <h3>Informations personnelles</h3>
+    <p class="text-muted">Ces dernières ne seront utilisée qu'afin de confirmer la réservation</p>
     
-    <form method="POST" action="{{ route('reservation.store') }}">
+    <form method="POST" action="{{ route('reservation.store') }}" class="text-right">
         @csrf
         
         <div class="form-group row">
@@ -67,23 +68,37 @@
         </div>
         
         
-        <h3>reservation</h3>
+        <h3 class="mb-3 text-center">Réservation</h3>
 
         <div class="form-group row">
-            <label for="datepicker" class="col-md-4 col-form-label text-md-right">{{ __('Numéro de téléphone') }}</label>
+            <label for="datepicker" class="col-md-4 col-form-label text-md-right">{{ __('Date & Horaire de réservation') }}</label>
             
             <div class="col-md-6">
-                <input id="datePicker" name="dat" class="form-control" type="datetime">
+                <input id="datePicker"  name="horaire" class="form-control">
             </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-4">
+                {{Form::label('nbDePersonnes', 'Nombre de personnes')}}
+            </div>
+            <div class="col-md-6">
+                {{Form::number('nbDePersonnes', null, ['class' => 'form-control','step' => '1'])}}
+            </div>
+        </div>
+
+        <div class="form-group text-center">
+            {{Form::label('information', 'Information complémentaires :')}}
+            {{Form::textarea('information', null, ['class' => 'form-control', 'style' => 'height: 6em;'])}}
         </div>
         
         
         
         
-        <div class="form-group row mb-0">
-            <div class="col-md-8 offset-md-4">
+        <div class="form-group row mb-0 text-center">
+            <div class="col-md-8 offset-md-2">
                 <button type="submit" class="btn btn-primary">
-                    {{ __('Se connecter') }}
+                    {{ __('Réserver') }}
                 </button>
             </div>
         </div>

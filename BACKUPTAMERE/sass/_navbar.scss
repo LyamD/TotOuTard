@@ -1,11 +1,11 @@
 #mainNav {
   min-height: 56px;
-  background-color: $primary;
+  background-color: $secondary;
   .navbar-toggler {
     font-size: 80%;
     padding: 0.75rem;
     color: $white;
-    border: 1px solid $white;
+    border: 1px solid $primary;
     &:focus {
       outline: none;
     }
@@ -18,7 +18,7 @@
   .navbar-nav {
     .nav-item {
       &:hover {
-        color: fade(white, 80%);
+        color: fade($white, 80%);
         outline: none;
         background-color: transparent;
       }
@@ -47,7 +47,7 @@
         color: fade-out($white, .25);
       }
       &:active {
-        color: white;
+        color: $white;
       }
     }
     &.navbar-shrink {
@@ -74,7 +74,4 @@
     }
   }
 
-  .navbar-collapse {
-    color: $white;
-  }
 }

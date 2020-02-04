@@ -115,11 +115,11 @@ const app = new Vue({
               nav: true
           },
           600: {
-              items: 2,
+              items: 1,
               nav: false
           },
           768: {
-              items: 3,
+              items: 2,
               nav: false
           },
           1000: {
@@ -132,7 +132,6 @@ const app = new Vue({
 
     $("#owl-evenement").owlCarousel({ 
       items: 1,
-      center: true,
       loop: true,
       slideSpeed : 300,
       paginationSpeed : 400,
@@ -141,7 +140,12 @@ const app = new Vue({
 
     
 
-    $('#datePicker').flatpickr();
+    $('#datePicker').flatpickr({
+      enableTime: true,
+      dateFormat: "Y-m-d H:i",
+      minDate: "today",
+      maxDate: new Date().fp_incr(50) // 50 days from now
+    });
 
 })(jQuery); // End of use strict
   

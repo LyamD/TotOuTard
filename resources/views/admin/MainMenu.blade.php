@@ -25,7 +25,10 @@
     <div class="row">
         <div class="col-md-6">
             <h4 class="text-primary"> Date de Fermeture </h4>
-            <a class="btn btn-light">Ajouter</a>
+            <div class="btn-group" role="group">
+                <a type="button" class="btn btn-light">Ajouter</a>
+                <a type="button" class="btn btn-light">Liste</a>
+            </div>
         </div>
         <div class="col-md-6">
             <h4 class="text-primary">Administrateur</h4>
@@ -61,8 +64,8 @@
         <div class="col-md-6">
             <h4 class="text-primary"> Affiche </h4>
             <div class="btn-group" role="group">
-                <a type="button" class="btn btn-light">Ajouter</a>
-                <a type="button" class="btn btn-light">Liste</a>
+                <a href="{{route('affiche.create')}}" type="button" class="btn btn-light">Ajouter</a>
+                <a href="{{route('affiche.index')}}" type="button" class="btn btn-light">Liste</a>
             </div>
         </div>
     </div>

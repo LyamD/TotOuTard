@@ -15,18 +15,18 @@ class AfficheController extends Controller
     public function index()
     {
         $affiches = Affiche::all();
-        return view('')->with('affiche', $affiches);
+        return view('admin.nourriture.affiche.liste')->with('affiches', $affiches);
     }
 
     public function create()
     {
-        return view('affiche.create');
+        return view('admin.nourriture.affiche.create');
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|max:2048',
         ]);
 
         $path = $request->file('image')->store(
