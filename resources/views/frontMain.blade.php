@@ -123,7 +123,10 @@
             </button>
           </div>
           <div class="modal-body">
-            <img src="images/Evenement/affiche.jpg" alt="Prochain évènement" class="img-fluid">
+            @php
+              $photo = App\Photos::find(1);   
+            @endphp
+            <img src="images/{{$photo['image']}}" alt="Prochain évènement" class="img-fluid">
           </div>
         </div>
       </div>
@@ -467,14 +470,8 @@
         </div>
 
         <div class="social d-flex justify-content-center">
-          <a href="#" class="mx-2">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="#" class="mx-2">
+          <a href="https://www.facebook.com/restaurantmeyrannes/" class="mx-2">
             <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="#" class="mx-2">
-            <i class="fab fa-github"></i>
           </a>
         </div>
 
