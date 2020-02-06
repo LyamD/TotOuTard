@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Affiche;
 
 class AfficheController extends Controller
@@ -46,9 +47,11 @@ class AfficheController extends Controller
 
     static public function destroy($id)
     {
-        $affiches = Affiche::find($id);
-        $affiches->delete();
+        $affiche = Affiche::find($id);
+        Storage::disk('image_upload')->delete($affiche['imageName']);
+        $affiche->delete();
 
         return redirect('home');
     }
+
 }

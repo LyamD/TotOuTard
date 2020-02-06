@@ -52,6 +52,7 @@ class ReservationController extends Controller
         $reservation->horaire = $request->input('horaire');
         $reservation->nbDePersonnes = $request->input('nbDePersonnes');
         $reservation->information = $request->input('information');
+        $reservation->etat = $request->input('etat');
         $reservation->client_id = $client['id'];
 
         $reservation->save();
@@ -59,48 +60,32 @@ class ReservationController extends Controller
         return redirect('');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\reservation  $reservation
-     * @return \Illuminate\Http\Response
-     */
-    public function show(reservation $reservation)
+    public function validerReservation($id)
     {
-        //
+        $reservation = Reservation::find($id);
+        $reservation->etat = 1;
+        //Envoyer mail valider
+        $reservation->save();
+
+        return redirect('home');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\reservation  $reservation
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(reservation $reservation)
+    public function refuserReservation($id)
     {
-        //
+        $reservation = Reservation::find($id);
+        $reservation->etat = 2;
+        //Envoyer mail valider
+        $reservation->save();
+
+        return redirect('home');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\reservation  $reservation
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, reservation $reservation)
+    public function updateState($id, $state)
     {
-        //
-    }
+        $reservation = Reservation::find($id);
+        $reservation->etat = $state;
+        $reservation->save();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\reservation  $reservation
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(reservation $reservation)
-    {
-        //
+        return redirect('home');
     }
 }

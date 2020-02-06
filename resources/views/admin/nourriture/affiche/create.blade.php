@@ -42,7 +42,7 @@
         <div class="col-md-4"></div>
         <div class="form-group col-md-4">
             {{Form::label('image', 'Choisir une image')}}
-            {{Form::file('image', null, ['class' => 'form-control'])}}
+            {{Form::file('image', null, ['class' => 'form-control-file'])}}
         </div>
     </div>
 

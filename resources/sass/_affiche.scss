@@ -1,16 +1,14 @@
-#affiche{ 
-    .plat-affiche{
-        z-index: 1;
-        background: $white;
+#affiche {
+    
+    
+    img {
         border-radius: 6px;
-        border: 6px, thin, $primary;
-        box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-
-
-        img {
-            border-radius: 6px;
-        }
+        border: 1px, thin, $primary;
+        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+        max-height: 20rem;
+        width: fit-content;
+        object-fit: cover;
     }
 
+
 }
-  

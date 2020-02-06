@@ -9,14 +9,14 @@
 
     .card {
         border: 0;
-        border-bottom: 0.25rem solid $primary;
+        border-bottom: 0.25rem solid $dark;
         box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
 
-        h4 {
-            font-size: 0.8rem;
+        h5 {
+            //font-size: 0.8rem;
             font-family: 'Varela Round';
             text-transform: uppercase;
-            letter-spacing: 0.15rem;
+            letter-spacing: 0.10rem;
         }
 
         hr {

@@ -9,7 +9,11 @@ class Reservation extends Model
     protected $table = "reservations";
 
     protected $fillable = [
-        'horaire', 'nbDePersonnes', 'information'
+        'horaire', 'nbDePersonnes', 'information', 'etat'
     ];
+
+    public function client() {
+        return $this->belongsTo('App\Client', 'client_id');
+    }
 
 }

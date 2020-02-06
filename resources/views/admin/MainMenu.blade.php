@@ -5,6 +5,9 @@
 <div class="text-center p-4 text-white">
 
     <h1 class="text-primary"> Restaurant </h1>
+    <div class="row">
+        @include('admin.reservation.liste')
+    </div>
 
     <div class="row m-4">
         <div class="col-md-6">
@@ -16,10 +19,7 @@
         </div>
         <div class="col-md-6">
             <h4 class="text-primary">Photos Evenement</h4>
-            <div class="btn-group" role="group">
-                <a type="button" class="btn btn-light">Ajouter</a>
-                <a type="button" class="btn btn-light">Liste</a>
-            </div>
+            <a href="{{route('photo.index')}}" type="button" class="btn btn-light">Liste</a>
         </div>
     </div>
     <div class="row">

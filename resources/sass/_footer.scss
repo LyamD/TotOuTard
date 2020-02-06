@@ -1,0 +1,9 @@
+footer {
+    a {
+        color: $white;
+
+        &:hover {
+            color: $light;
+        }
+    }
+}

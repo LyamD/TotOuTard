@@ -52636,23 +52636,10 @@ __webpack_require__(/*! flatpickr/dist/themes/light.css */ "./node_modules/flatp
  */
 
 
+var selectOptions;
 var app = new Vue({
   el: '#app',
-  data: {
-    elements: [{
-      ccc: 'Learn JavaScript'
-    }, {
-      ccc: 'Learn Vue'
-    }, {
-      ccc: 'Build something awesome'
-    }],
-    message: 'prara'
-  },
-  methods: {
-    laFonction: function laFonction() {
-      this.message = this.message.split('').reverse().join('');
-    }
-  }
+  data: {}
 }); // Non Vue related JS
 //$(".lepicker").flatpickr(optional_config);
 
@@ -52696,17 +52683,18 @@ var app = new Vue({
 
   $(window).scroll(navbarCollapse);
   $('#owl-carousel-menus').owlCarousel({
-    loop: true,
     margin: 50,
     responsiveClass: true,
     responsive: {
       0: {
         items: 1,
-        nav: true
+        nav: true,
+        loop: true
       },
       600: {
         items: 1,
-        nav: false
+        nav: false,
+        loop: true
       },
       768: {
         items: 2,
@@ -52714,8 +52702,7 @@ var app = new Vue({
       },
       1000: {
         items: 3,
-        nav: true,
-        loop: true
+        nav: true
       }
     }
   });
@@ -52727,11 +52714,17 @@ var app = new Vue({
     singleItem: true
   });
   $('#datePicker').flatpickr({
-    enableTime: true,
     dateFormat: "Y-m-d H:i",
     minDate: "today",
-    maxDate: new Date().fp_incr(50) // 50 days from now
-
+    maxDate: new Date().fp_incr(50),
+    // 50 days from now
+    enableTime: true,
+    time_24hr: true,
+    minTime: "08:00",
+    maxTime: "22:00"
+  });
+  $('.widget').on('click touch', '#our-places-btn', function () {
+    $('.widget').toggleClass('is-open');
   });
 })(jQuery); // End of use strict
 
